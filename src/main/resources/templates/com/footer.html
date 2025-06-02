@@ -1,0 +1,21 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="footer-frag" th:remove="tag">
+    <footer class="row bg-transparent text-white text-center py-4 mt-auto">
+        <p class="mb-1">© 2025 José Angel Maciel — SafePassGen</p>
+        <p class="mb-2">
+            <a href="https://github.com/juanperez" class="text-light text-decoration-none" target="_blank">GitHub</a>
+        </p>
+        <small class="d-block text-secondary">
+            Developed with HTML, CSS, Bootstrap, JS, Java Spring-Boot y Thymeleaf
+        </small>
+    </footer>
+
+</div>
+<div th:fragment="fot-frag" th:remove="tag">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+    <script type="module" th:src="@{js/clicks.js}"></script>
+</div>
+
+</html>

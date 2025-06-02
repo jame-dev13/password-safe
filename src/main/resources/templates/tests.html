@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{com/head::head-frag(title='Tests')}"></head>
+
+<body>
+    <div class="container-fluid d-flex flex-column flex-row gap-2 min-vh-100">
+        <div th:replace="~{com/nav::navbar}"></div>
+        <main class="row flex-grow-1">
+            <div class="col-lg-6 mx-auto">
+                <h3 class="fw-light mb-4 text-white text-center fw-semibold">Generated Passwords</h3>
+                <div class="card shadow-lg border-0 bg-dark">
+                    <div class="card-body text-center">
+                        <!-- Resultado de una sola password -->
+                        <code id="pwd-result" class="d-block mb-3 fs-5 user-select-all">PASSWORD</code>
+
+                        <!-- Lista de múltiples passwords -->
+                        <ul id="list" class="list-group d-none flex-column">
+                            <!-- Items serán insertados aquí dinámicamente -->
+                            <!-- Ejemplo: <li class="list-group-item bg-dark text-light border-secondary">abc123DEF!</li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div th:replace="~{com/apiTest::article-tests}"></div>
+        </main>
+        <div th:replace="~{com/footer::footer-frag}"></div>
+    </div>
+    <div th:replace="~{com/footer::fot-frag}"></div>
+</body>
+
+</html>

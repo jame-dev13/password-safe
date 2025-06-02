@@ -1,0 +1,89 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="article-doc" th:remove="tag">
+    <article class="row flex-column gap-4 justify-content-start">
+        <h3 class="text-center text-light display-6 fw-semibold mb-4" role="heading">API Endpoints</h3>
+
+        <!-- Endpoint 1 -->
+        <div class="col">
+            <div class="rounded-3 p-3 bg-dark bg-opacity-75 shadow text-white">
+                <p>
+                    Generates a password with a fixed length of <strong>16</strong>, using special and alphanumeric
+                    characters:
+                    <br>
+                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/password</code>
+                </p>
+            </div>
+        </div>
+
+        <!-- Endpoint 2 -->
+        <div class="col">
+            <div class="rounded-3 p-3 bg-dark bg-opacity-75 shadow text-white">
+                <p>
+                    Generates a password with variable length <strong>(min: 8)</strong>, using special and alphanumeric
+                    characters:
+                    <br>
+                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/password/length</code>
+                    <small class="d-block mt-2">Example:</small>
+                    <code class="user-select-all">api/v1/password/length?length=10</code>
+                    <small>Note: The maximum length for this type of password is <strong class="text-info">92</strong></small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Endpoint 3 -->
+        <div class="col">
+            <div class="rounded-3 p-3 bg-dark bg-opacity-75 shadow text-white">
+                <p>
+                    Generates a 16-character password using only alphanumeric characters:
+                    <br>
+                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/password/alphaNum</code>
+                </p>
+            </div>
+        </div>
+
+        <!-- Endpoint 4 -->
+        <div class="col">
+            <div class="rounded-3 p-3 bg-dark bg-opacity-75 shadow text-white">
+                <p>
+                    Generates a variable-length alphanumeric password <strong>(min: 8)</strong>:
+                    <br>
+                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/password/alphaNum/length</code>
+                    <small class="d-block mt-2">Example:</small>
+                    <code class="user-select-all">api/v1/password/alphaNum/length?length=10</code>
+                    <small>The maximum length for this type of password is <strong class="text-info">62</strong></small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Endpoint 5 -->
+        <div class="col">
+            <div class="rounded-3 p-3 bg-dark bg-opacity-75 shadow text-white">
+                <p>
+                    Generates <code>num</code> passwords (special + alphanumeric):
+                    <br>
+                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/passwords/num</code>
+                    <small class="d-block mt-2">Example:</small>
+                    <code class="user-select-all">api/v1/passwords/num?num=4</code>
+                <p class="text-warning mt-2"><strong>Note:</strong> <code>num &gt; 1 and &lt; 16</code></p>
+                </p>
+            </div>
+        </div>
+
+        <!-- Endpoint 6 -->
+        <div class="col">
+            <div class="rounded-3 p-3 bg-dark bg-opacity-75 shadow text-white">
+                <p>
+                    Generates <code>num</code> passwords with a custom <code>length</code> (special + alphanumeric):
+                    <br>
+                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/passwords/num/length</code>
+                    <small class="d-block mt-2">Example:</small>
+                    <code class="user-select-all">api/v1/passwords/num/length?num=4&amp;length=12</code>
+                <p class="text-warning mt-2"><strong>Note:</strong> <code>num &gt; 1 and num &lt; 16</code> and
+                    <code>length &gt; 7 and length &lt; 93</code>.</p>
+                </p>
+            </div>
+        </div>
+    </article>
+</div>
+
+</html>

@@ -1,0 +1,36 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="navbar" th:remove="tag">
+    <header class="row p-2 mb-2">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid border border-0">
+                <button class="navbar-toggler mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse m-2" id="navbarNav">
+                    <ul class="nav nav-tabs border border-dark p-2 rounded" id="nav">
+                        <li class="nav-item p-1">
+                            <a class="nav-link item-list" th:href="@{/}">SafePasswords</a>
+                        </li>
+                        <li class="nav-item p-1">
+                            <a class="nav-link item-list" data-bs-toggle="collapse" href="#c-example" role="button"
+                                aria-expanded="false" aria-controls="c-example">
+                                Basic Example
+                            </a>
+                        </li>
+                        <li class="nav-item p-1">
+                            <a class="nav-link item-list" th:href="@{/tests}">Tests</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse" id="c-example">
+                    <div class="card card-body border border-black bg-transparent">
+                        <code class="fw-lighter user-select-all" id="example"></code>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+</div>
+
+</html>

@@ -1,0 +1,79 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="article-tests" th:remove="tag">
+    <article class="col-lg-6 mx-auto">
+        <h3 class="text-center mb-4 text-light fw-semibold">API Test Panel</h3>
+
+        <div class="card shadow-lg border-0 bg-dark text-light">
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <!-- Test 1 -->
+                    <li class="list-group-item bg-transparent text-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span><code>api/v1/password</code></span>
+                            <button type="button" class="btn btn-outline-primary btn-sm" id="pwd-normal">Test</button>
+                        </div>
+                    </li>
+                    <!-- Test 2 -->
+                    <li class="list-group-item bg-transparent text-light">
+                        <label for="pwdNormalLen" class="form-label mb-1">api/v1/password/length</label>
+                        <div class="input-group">
+                            <input type="number" id="pwdNormalLen" name="pwdNormalLen" class="form-control"
+                                placeholder="Length (min: 8, max: 92)" required>
+                            <button type="button" class="btn btn-outline-primary" id="pwd-normal-l">Test</button>
+                        </div>
+                    </li>
+
+                    <!-- Test 3 -->
+                    <li class="list-group-item bg-transparent text-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span><code>api/v1/password/alphaNum</code></span>
+                            <button type="button" class="btn btn-outline-primary btn-sm" id="pwd-alphanum">Test</button>
+                        </div>
+                    </li>
+
+                    <!-- Test 4 -->
+                    <li class="list-group-item bg-transparent text-light">
+                        <label for="alphaLength" class="form-label mb-1">api/v1/password/alphaNum/length</label>
+                        <div class="input-group">
+                            <input type="number" id="alphaLength" name="alphaLength" class="form-control"
+                                placeholder="Length (min: 8, max: 62)" required>
+                            <button type="button" class="btn btn-outline-primary" id="pwd-alphanum-l">Test</button>
+                        </div>
+                    </li>
+
+                    <!-- Test 5 -->
+                    <li class="list-group-item bg-transparent text-light">
+                        <label for="num" class="form-label mb-1">api/v1/passwords</label>
+                        <div class="input-group">
+                            <input type="number" id="num" name="num" class="form-control" placeholder="(min: 2, max: 15)"
+                                required>
+                            <button type="button" class="btn btn-outline-primary" id="pwds-n">Test</button>
+                        </div>
+                    </li>
+
+                    <!-- Test 6 -->
+                    <li class="list-group-item bg-transparent text-light">
+                        <label for="nums" class="form-label mb-1">api/v1/passwords/length</label>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <input type="number" id="nums" name="nums" class="form-control" placeholder="n= (min: 2, max: 15)"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="number" id="length" name="length" class="form-control" placeholder="Length= (min: 8, max: 92)"
+                                    required>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <button type="button" class="btn btn-outline-primary w-100" id="pwds-n-l">Test</button>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </article>
+
+</div>
+
+</html>
