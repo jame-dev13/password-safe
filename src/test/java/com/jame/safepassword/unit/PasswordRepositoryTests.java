@@ -98,6 +98,7 @@ public class PasswordRepositoryTests {
         System.out.println("--------");
         System.out.println("The maximum num of passwords that can be generate is: " + MAX_N);
         System.out.println("The maximum length allowed for each password is: " + MAX_LENGTH);
+        listPasswords.parallelStream().forEach(p -> System.out.println(p.value()));
         assertAll(
                 () ->  assertEquals(MAX_N, listPasswords.size()),
                 () -> assertTrue(

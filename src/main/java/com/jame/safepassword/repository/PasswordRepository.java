@@ -26,22 +26,38 @@ public class PasswordRepository {
 
     /**
      *
-     * @return a Password created of a random selection of
-     * alphanumeric and special characters
+     * @param pool
+     * @param length
+     * @param alphaNum
+     * @return a List of Characters to make a password based on the params, the pool is
+     * going to assign depends on the flag: alphaNum, if this is true there only be
+     * alphanumeric characters in the list, otherwise the {@value SPEC} is going to concat.
+     * the length param will be used to set in the public methods to set the length of the password.
      */
-    public String generatePassword() {
-        char[] chars = (pool+SPEC).toCharArray();
-        List<Character> characters = addAtLeastOne(false);
-        Set<Character> used = new HashSet<>(characters);
-        while(characters.size() < BASE_LENGTH){
+    private List<Character> createPassword(String pool, int length, boolean alphaNum){
+        List<Character> current = addAtLeastOne(alphaNum);
+        Set<Character> used = new HashSet<>(current);
+        pool = (alphaNum) ? pool : pool.concat(SPEC);
+        char[] chars = pool.toCharArray();
+        while(current.size() < length){
             int index = random.nextInt(chars.length);
             char c = chars[index];
             if(!used.contains(c)){
                 used.add(c);
-                characters.add(c);
+                current.add(c);
             }
         }
-        Collections.shuffle(characters, random);
+        Collections.shuffle(current, random);
+        return current;
+    }
+
+    /**
+     *
+     * @return a Password created of a random selection of
+     * alphanumeric and special characters
+     */
+    public String generatePassword() {
+        List<Character> characters = createPassword(pool, BASE_LENGTH, false);
         return characters.stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining());
@@ -57,19 +73,8 @@ public class PasswordRepository {
      * if length < {@value MIN_LENGTH} then length = {@value MIN_LENGTH}.
      */
     public String generatePassword(Integer length){
-        length = (length < MIN_LENGTH) ? MIN_LENGTH : (length > MAX_LENGTH) ? MAX_LENGTH: length;
-        char[] chars = (pool + SPEC).toCharArray();
-        List<Character> characters = addAtLeastOne(false);
-        Set<Character> used = new HashSet<>(characters);
-        while(characters.size() < length){
-            int index = random.nextInt(chars.length);
-            char c = chars[index];
-            if(!used.contains(c)) {
-                used.add(c);
-                characters.add(c);
-            }
-        }
-        Collections.shuffle(characters, random);
+        length = (length > MAX_LENGTH) ? MAX_LENGTH: length;
+        List<Character> characters = createPassword(pool, length, false);
         return characters.stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining());
@@ -80,18 +85,7 @@ public class PasswordRepository {
      * @return a Password created using only alphanumeric and special characters
      */
     public String generatePasswordAlphaNum(){
-        char[] chars = (pool).toCharArray();
-        List<Character> characters = addAtLeastOne(true);
-        Set<Character> used = new HashSet<>(characters);
-        while(characters.size() < BASE_LENGTH){
-            int index = random.nextInt(chars.length);
-            char c = chars[index];
-            if(!used.contains(c)) {
-                used.add(c);
-                characters.add(c);
-            }
-        }
-        Collections.shuffle(characters, random);
+        List<Character> characters = createPassword(pool, BASE_LENGTH, true);
         return characters.stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining());
@@ -105,19 +99,8 @@ public class PasswordRepository {
      * if length < {@value MIN_LENGTH} then length = {@value MIN_LENGTH}.
      */
     public String generatePasswordAlphaNum(Integer length){
-        length = (length < MIN_LENGTH) ? MIN_LENGTH: (length > MAX_ALPHA_NUM_LENGTH) ? MAX_ALPHA_NUM_LENGTH : length;
-        char[] chars = (pool).toCharArray();
-        List<Character> characters = addAtLeastOne(true);
-        Set<Character> used = new HashSet<>(characters);
-        while(characters.size() < length){
-            int index = random.nextInt(chars.length);
-            char c = chars[index];
-            if(!used.contains(c)) {
-                used.add(c);
-                characters.add(c);
-            }
-        }
-        Collections.shuffle(characters, random);
+        length = (length > MAX_ALPHA_NUM_LENGTH)? MAX_ALPHA_NUM_LENGTH: length;
+        List<Character> characters = createPassword(pool, length, true);
         return characters.stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining());
