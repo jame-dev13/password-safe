@@ -34,7 +34,8 @@ public class WebConfig {
                 "Accept",
                 "Authorization",
                 "Access-Control-Request-Method",
-                "Access-Control-Request-Headers"
+                "Access-Control-Request-Headers",
+                "Access-Control-Allow-Origin"
         ));
         corsConfiguration.setAllowedMethods(List.of("GET", "OPTIONS"));
         corsConfiguration.setAllowedOrigins(List.of("*"));
