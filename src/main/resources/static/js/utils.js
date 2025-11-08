@@ -1,6 +1,6 @@
 const BASE_URL = "/api/v1";
 export const valueForExample = async () => {
-    const response = await fetch(`${BASE_URL}/password`)
+    const response = await fetch(`${BASE_URL}/passwords`)
     const data = await response.json();
     return await data;
 };
@@ -31,7 +31,6 @@ export const getData = async (url, dataContainer) => {
             dataContainer.innerText = data.value;
         }
     } catch (error) {
-        console.error(error);
-        alert('Error to get Data.');
+        alert('Error requesting data');
     }
 };

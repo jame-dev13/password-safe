@@ -10,7 +10,7 @@
                     Generates a password with a fixed length of <strong>16</strong>, using special and alphanumeric
                     characters:
                     <br>
-                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/password</code>
+                    <code class="d-block mt-2 fs-5 user-select-all">/api/v1/passwords</code>
                 </p>
             </div>
         </div>
@@ -22,9 +22,9 @@
                     Generates a password with variable length <strong>(min: 8)</strong>, using special and alphanumeric
                     characters:
                     <br>
-                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/password/length</code>
+                    <code class="d-block mt-2 fs-5 user-select-all">/api/v1/passwords/password/{length}</code>
                     <small class="d-block mt-2">Example:</small>
-                    <code class="user-select-all">api/v1/password/length?length=10</code>
+                    <code class="user-select-all">/api/v1/passwords/password/10</code>
                     <small>Note: The maximum length for this type of password is <strong class="text-info">92</strong></small>
                 </p>
             </div>
@@ -36,7 +36,7 @@
                 <p>
                     Generates a 16-character password using only alphanumeric characters:
                     <br>
-                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/password/alphaNum</code>
+                    <code class="d-block mt-2 fs-5 user-select-all">/api/v1/passwords/alphaNum</code>
                 </p>
             </div>
         </div>
@@ -47,9 +47,9 @@
                 <p>
                     Generates a variable-length alphanumeric password <strong>(min: 8)</strong>:
                     <br>
-                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/password/alphaNum/length</code>
+                    <code class="d-block mt-2 fs-5 user-select-all">/api/v1/passwords/alphaNum/{length}</code>
                     <small class="d-block mt-2">Example:</small>
-                    <code class="user-select-all">api/v1/password/alphaNum/length?length=10</code>
+                    <code class="user-select-all">/api/v1/passwords/alphaNum/10</code>
                     <small>The maximum length for this type of password is <strong class="text-info">62</strong></small>
                 </p>
             </div>
@@ -61,9 +61,9 @@
                 <p>
                     Generates <code>num</code> passwords (special + alphanumeric):
                     <br>
-                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/passwords/num</code>
+                    <code class="d-block mt-2 fs-5 user-select-all">/api/v1/passwords/{num}</code>
                     <small class="d-block mt-2">Example:</small>
-                    <code class="user-select-all">api/v1/passwords/num?num=4</code>
+                    <code class="user-select-all">/api/v1/passwords/4</code>
                 <p class="text-warning mt-2"><strong>Note:</strong> <code>num &gt; 1 and &lt; 16</code></p>
                 </p>
             </div>
@@ -75,9 +75,9 @@
                 <p>
                     Generates <code>num</code> passwords with a custom <code>length</code> (special + alphanumeric):
                     <br>
-                    <code class="d-block mt-2 fs-5 user-select-all">api/v1/passwords/num/length</code>
+                    <code class="d-block mt-2 fs-5 user-select-all">/api/v1/passwords/{num}/{length}</code>
                     <small class="d-block mt-2">Example:</small>
-                    <code class="user-select-all">api/v1/passwords/num/length?num=4&amp;length=12</code>
+                    <code class="user-select-all">/api/v1/passwords/4/12</code>
                 <p class="text-warning mt-2"><strong>Note:</strong> <code>num &gt; 1 and num &lt; 16</code> and
                     <code>length &gt; 7 and length &lt; 93</code>.</p>
                 </p>
